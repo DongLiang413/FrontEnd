@@ -1,0 +1,94 @@
+body {
+  padding: 10px;
+  background: url(UMNTC.jpg);
+  background-size: 1920px 1200px;
+  background-repeat: no-repeat;
+  opacity: 0.9;
+}
+input[type=text], [type=time],select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit], [type=reset] {
+    width: 50%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+input[type=reset]:hover {
+    background-color: #45a049;
+}
+
+#div_form {
+    background-color: gray;
+    font-family: 'Blackadder ITC';
+    font-size: xx-large;
+    color: darkblue;
+    /*margin-left: 5em;*/
+    text-align: center;
+    backface-visibility: visible;
+}
+
+#div_form h1 {
+    font-family: 'Blackadder ITC';
+    font-size: xx-large;
+    color: darkblue
+}
+
+/*div {*/
+    /*border-radius: 5px;*/
+    /*background-color: dimgray;*/
+    /*padding: 20px;*/
+/*}*/
+
+label {
+    font-family: "Century Gothic";
+    font-size: xx-large;
+}
+
+#div_form_navi {
+    /*margin-right: 400px;*/
+    text-align: left;
+}
+
+ul {
+    list-style-type: none;
+    margin: 8px;
+    padding: 8px;
+    overflow: hidden;
+    background-color: floralwhite;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 8px 20px;
+    text-decoration: none;
+    background: floralwhite;
+    font-family: "Blackadder ITC";
+    font-size: x-large;
+}
+
+li a:hover {
+    background-color: lightgray;
+}

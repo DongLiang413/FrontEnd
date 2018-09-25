@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="form_style.css" type="text/css"/>
+    <script type = "text/javascript" src = "form.js"> </script>
+    <title>form</title>
+</head>
+
+<body>
+<hr />
+<div id="div_form_navi">
+    <ul>
+        <li><a href="calendar.html">My Calendar</a></li>
+        <li><a href="form.html">From Input</a></li>
+        <li><a href="myWidgets.html">My Widgets</a></li>
+    </ul>
+</div>
+<div id = "div_form">
+<h1>Add new event</h1>
+<form id="userForm" action="https://www-users.cs.umn.edu/~shaw0162/index.php">
+    <label>Event Name:</label> <br>
+    <input type="text" id="ename" name="eventname" placeholder="Event name">
+    <br>
+    <label>Start Time:</label> <br>
+    <input type="time" id="stime" name="starttime">
+    <br>
+    <label>End Time:</label> <br>
+    <input type="time" id="etime" name="endtime">
+    <br>
+    <label>Location:</label> <br>
+    <input type="text" id="elocation" name="location" placeholder="Event Location">
+    <br>
+    <label>Day of the week:</label> <br>
+    <select id="dweek" name = "day">
+        <option> ?? </option>
+        <option> Mon </option>
+        <option> Tue </option>
+        <option> Wed </option>
+        <option> Thu </option>
+        <option> Fri </option>
+    </select>
+    <br>
+    <input type="submit" value="Submit" onclick="checkSubmit()">
+    <input type="reset" value="Reset">
+</form>
+</div>
+</body>
+</html>

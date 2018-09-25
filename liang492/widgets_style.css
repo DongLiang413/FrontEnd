@@ -1,0 +1,49 @@
+body {
+    padding: 25px;
+    background: url(UMNTC.jpg);
+    background-repeat: no-repeat;
+    background-size: 1920px 1200px;
+    opacity: 0.9;
+}
+
+#div_widgets_navi {
+    text-align: left;
+
+}
+
+ul {
+    list-style-type: none;
+    margin: 8px;
+    padding: 8px;
+    overflow: hidden;
+    background-color: floralwhite;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 8px 20px;
+    text-decoration: none;
+    background: floralwhite;
+    font-family: "Blackadder ITC";
+    font-size: x-large;
+}
+
+li a:hover {
+    background-color: lightgray;
+}
+
+#playlist {
+    margin: 0.5em 33em 33em;
+    opacity: 2.0;
+}
+
+#playlist  iframe {
+    /*width: 30em;*/
+    /*height: 20em;*/
+}

@@ -7,7 +7,6 @@ body {
 
 #div_widgets_navi {
     text-align: left;
-
 }
 
 ul {
@@ -38,18 +37,38 @@ li a:hover {
 }
 
 #playlist {
-    margin: 0.5em 33em 33em;
-    opacity: 2.0;
+    margin: 0.5em 33em;
+    opacity: 1.0;
 }
 
-#playlist  iframe {
-    /*width: 30em;*/
-    /*height: 20em;*/
-}
 
 #game_div {
-    width: 300px;
-    border: 25px grey;
-    padding: 25px;
-    margin: 25px;
+    background-color: floralwhite;
+    padding: 1em;
+    margin: 2em 33em;
+    font-size: large;
 }
+
+table, tr, td {
+    border: 1px solid black;
+}
+
+/*#p1{*/
+    /*background-color: #4CAF50;*/
+/*}*/
+/*#map {*/
+    /*background-color: lightpink;*/
+/*}*/
+
+/*#map {*/
+    /*text-align: center;*/
+    /*border: 10px black;*/
+    /*font-size: x-large;*/
+    /*!*border-collapse: separate;*!*/
+    /*width: 80%;*/
+    /*table-layout: fixed;*/
+/*}*/
+
+/*#map th, tr {*/
+    /*border: 2px black;*/
+/*}*/

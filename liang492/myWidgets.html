@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>myWidgets</title>
     <link rel="stylesheet" href="widgets_style.css" type="text/css"/>
+    <script type = "text/javascript" src = "widgets.js"> </script>
 </head>
 <body>
 <hr />
@@ -18,21 +19,47 @@
     <iframe src="https://www.youtube.com/embed/Sy71P3-r66w?list=PLDuuGVSMH2yK7DPBcwsw04EJcCFBdsylk"
             frameborder="0" allow="utoplay; encrypted-media" allowfullscreen></iframe>
     <br>
-    <a class="twitter-timeline" href="https://twitter.com/TwitterDev/lists/national-parks?ref_src=twsrc%5Etfw"
-       data-tweet-limit="3">
-        A Twitter List by TwitterDev</a>
+    <a class="twitter-timeline" href="https://twitter.com/JHarden13?ref_src=twsrc%5Etfw" data-tweet-limit="3">Tweets by JHarden13</a>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <br>
 </div>
+<hr>
 
 <div id="game_div">
-    <h3>game</h3>
-    <p> 123123123123</p>>
-</div>>
+    <h2>TIC TAC TOE #</h2>
+    <form id="game_form">
+        <label>Enter Cell Name: </label>
+        <input type="text" id="cname" required>
+        <br><br>
+        <label> Select Cell Color: </label>
+        <select id="color">
+            <option> red(o) </option>
+            <option> blue(x)</option>
+        </select>
+    </form>
+    <br>
+    <button onclick="move()"> <strong>Click me to enter!</strong> </button>
+    <button onclick="reset()"> <strong>Click me to reset!</strong> </button>
+    <br> <br>
+    <table id="map">
+        <tr>
+            <td id="p1"> 1 <br> </td>
+            <td id="p2"> 2 <br> </td>
+            <td id="p3"> 3 <br> </td>
+        </tr>
 
+        <tr>
+            <td id="p4"> 4 <br> </td>
+            <td id="p5"> 5 <br> </td>
+            <td id="p6"> 6 <br> </td>
+        </tr>
 
-
-
-
+        <tr>
+            <td id="p7"> 7 <br> </td>
+            <td id="p8"> 8 <br> </td>
+            <td id="p9"> 9 <br> </td>
+        </tr>
+    </table>
+</div>
 </body>
 </html>

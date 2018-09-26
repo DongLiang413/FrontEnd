@@ -11,5 +11,4 @@ function onMouseOver(w1, w2, index) {
 function onMouseOut(w1, w2) {
     document.getElementById(w1).style.color = "black";
     document.getElementById(w2).style.visibility = "hidden";
-    // document.getElementById();
 }

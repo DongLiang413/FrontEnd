@@ -1,7 +1,6 @@
 body {
     padding: 25px;
-    background: url(UMNTC.jpg);
-    background-repeat: no-repeat;
+    background-color: pink;
     background-size: 1920px 1200px;
     opacity: 0.9;
 }
@@ -46,4 +45,11 @@ li a:hover {
 #playlist  iframe {
     /*width: 30em;*/
     /*height: 20em;*/
+}
+
+#game_div {
+    width: 300px;
+    border: 25px grey;
+    padding: 25px;
+    margin: 25px;
 }

@@ -1,10 +1,21 @@
-body {
-    padding: 1em;
-    background: lightpink;
+/*body {*/
+    /*padding: 1em;*/
+    /*background: lightpink;*/
+/*}*/
+html, body {
+    height: 100%;
+    margin: 1em;
+    padding: 1%;
+    background-color: lightpink;
 }
-
-#display_div {
-    text-align: center;
+#map {
+    margin-left: 15%;
+    height: 50%;
+    width: 60%;
+    /*margin-left: 15%;*/
+    /*margin-right: 15%;*/
+    /*margin-top: 1%;*/
+    /*align: center;*/
 }
 
 .smallImg {

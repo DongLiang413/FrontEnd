@@ -14,23 +14,27 @@ function onMouseOut(w1, w2) {
 }
 
 var iconImage = 'gdx.PNG';
+const dataNum = 3 * 5; // 3: morning, afternoon, evening; 5: Mon - Fri.
 
-function getEventList() {
+var getEventList = function() {
     var eventList = [];
-    for (var i = 0; i < 6; i++) {
+    for (var i = 0; i < dataNum; i++) {
         var p_id = "event" + i;
-        var data = document.getElementById(p_id).innerHTML;
-        if (!eventList.includes(data)) {
-            eventList.push(data);
+        if (document.getElementById(p_id) != null) {
+            var data = document.getElementById(p_id).innerHTML;
+            if (!eventList.includes(data)) {
+                eventList.push(data);
+            }
         }
     }
     // alert(eventList);
     return eventList;
 };
 
-function getLocationList() {
+var getLocationList = function() {
+    // var dataNum = 3 * 5;
     var locationList = [];
-    for (var i = 0; i < 6; i++) {
+    for (var i = 0; i < dataNum; i++) {
         var p_id = "location" + i;
         if (document.getElementById(p_id) != null) {
             var data = document.getElementById(p_id).innerHTML;
@@ -44,21 +48,33 @@ function getLocationList() {
     return locationList;
 };
 
-function getContent(event) {
-    var contentString = '<div id="content">' +
-        '<div id="bodyContent">' +
-        "Here is:" +
-        '<p> event <p>' +
-        '</div>' +
-        '</div>';
+function getSearchType() {
+    var type = document.getElementById("types").value;
+    if(type === "other") {
+        return document.getElementById("otherplace").value
+    }
+    return document.getElementById("types").value;
 }
+
+function getSearchDistance() {
+    return document.getElementById("distance").value;
+}
+
+function onClickSearch() {
+    initMap();
+    search(getSearchDistance(), getSearchType());
+}
+
 var map;
-function initMap() {
+var umn = {lat: 44.9727, lng: -93.23540000000003};
+var infowindow;
+
+var initMap = function() {
     var l1 = getLocationList();
     var l2 = getEventList();
 
     map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 44.9727, lng: -93.23540000000003},
+        center: umn,
         zoom: 16
     });
 
@@ -67,6 +83,37 @@ function initMap() {
     for (var i = 0; i < l1.length; i++) {
         geocodeAddressMarker(geocoder, map, l1[i], l2[i]);
     }
+};
+
+var search = function (searchRadius, searchType) {
+    infowindow = new google.maps.InfoWindow();
+    var service = new google.maps.places.PlacesService(map);
+    service.nearbySearch({
+        location: umn,
+        radius: searchRadius,
+        type: [searchType]
+    }, callback);
+};
+
+function callback(results, status) {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]);
+        }
+    }
+}
+
+function createMarker(place) {
+    var placeLoc = place.geometry.location;
+    var marker = new google.maps.Marker({
+        map: map,
+        position: place.geometry.location
+    });
+
+    google.maps.event.addListener(marker, 'click', function() {
+        infowindow.setContent(place.name);
+        infowindow.open(map, this);
+    });
 }
 
 function geocodeAddressMarker(geocoder, resultsMap, address, event) {
@@ -80,11 +127,11 @@ function geocodeAddressMarker(geocoder, resultsMap, address, event) {
                 title:address,
                 icon: iconImage
             });
-            var infowindow = new google.maps.InfoWindow({
+            var infowindow2 = new google.maps.InfoWindow({
                 content: event
             });
 
-           google.maps.event.addListener(marker, 'click', createWindow(resultsMap,infowindow, marker));
+            google.maps.event.addListener(marker, 'mouseover', createWindow(resultsMap,infowindow2, marker));
         } else {
             alert('Geocode was not successful for the following reason: ' + status);
         } //end if-then-else
@@ -93,12 +140,20 @@ function geocodeAddressMarker(geocoder, resultsMap, address, event) {
 
 // Function to return an anonymous function that will be called when the rmarker created in the
 // geocodeAddress function is clicked
-function createWindow(rmap, rinfowindow, rmarker){
+var createWindow = function(rmap, rinfowindow, rmarker) {
     return function(){
         rinfowindow.open(rmap, rmarker);
     }
 }//end create (info) win
 
 
+// var closeWindow = function(rinfowindow) {
+//     rinfowindow.close;
+// }
+
+
+
+
 // window.onload = displayTable;
 window.onload = initMap;
+// window.addEventListener('load', initMap);

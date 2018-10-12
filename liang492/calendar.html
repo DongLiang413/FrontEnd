@@ -5,10 +5,9 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="calendar_style.css" type="text/css"/>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDqLLawZsbAPy5Vmkr_80mQEdAH0AS4xg&callback=initMap"
-            type="text/javascript">
-    </script>
-    <script type = "text/javascript" src = "calendar.js"> </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDqLLawZsbAPy5Vmkr_80mQEdAH0AS4xg&libraries=places&callback=initMap" async defer></script>
+    <script type = "text/javascript" defer src = "calendar.js"> </script>
 </head>
 <body>
 <hr />
@@ -20,7 +19,7 @@
     </ul>
 </div>
 <div id= "div_timetable">
-<table id="timetable" onclick="displayTable()">
+<table id="timetable">
     <caption> Timetable </caption>
     <tr>
         <th> Week Day </th>
@@ -49,7 +48,6 @@
         <td>
             <p> None </p>
         </td>
-
     </tr>
 
     <tr>
@@ -152,6 +150,43 @@
 </div>
 <hr />
 <div id="map"></div>
-<hr />
+<div id = "input">
+    <form id="findPlaces">
+        <label> <strong> Find:</strong> </label>
+        <select id="types">
+            <option> restaurant </option>
+            <option> hospital </option>
+            <option> parking </option>
+            <option> supermarket </option>
+            <option> hotel </option>
+            <option> other </option>
+        </select>
+        <br>
+        <label> <strong> Other places:</strong> </label>
+        <input type="text" id="otherplace" value="Enter Other Places" required>
+        <br>
+        <label> <strong> In: </strong> </label>
+        <input type="text" id="distance" required> <strong>meters</strong>
+        <input type="button" value="Submit" onclick="onClickSearch()">
+    </form>
+    <hr>
+    <form id="findDirection">
+        <label> <strong>Direction to:</strong> </label>
+        <input type="text" id="destination" required> by
+        <br>
+        WALK <input type="checkbox" id="checkBox1" required> <br>
+        DRIVE <input type="checkbox" id="checkBox2" required> <br>
+        TRANSIT <input type="checkbox" id="checkBox3" required> <br>
+        <input type="button" value="Go" onclick="checkSubmit()">
+    </form>
+</div>
+
+<hr>
+<p>
+    <br>
+    <br>
+    <br>
+
+</p>
 </body>
 </html>

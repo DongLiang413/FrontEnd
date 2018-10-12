@@ -8,14 +8,27 @@ html, body {
     padding: 1%;
     background-color: lightpink;
 }
+
 #map {
-    margin-left: 15%;
+    margin-left:25%;
     height: 50%;
     width: 60%;
+    display: block;
+    float: left;
     /*margin-left: 15%;*/
     /*margin-right: 15%;*/
     /*margin-top: 1%;*/
     /*align: center;*/
+}
+
+#input {
+    text-indent: 5px;
+    line-height:20px;
+    background-color: lightcoral;
+    height: 50%;
+    width: 15%;
+    display: block;
+    float: right;
 }
 
 .smallImg {
@@ -23,7 +36,7 @@ html, body {
 }
 
 #div_timetable {
-    margin-left: 15em;
+    margin-left: 15%;
     text-align: center;
 }
 
@@ -97,4 +110,24 @@ li a {
 
 li a:hover {
     background-color: lightgray;
+}
+
+input[type=text], [type=checkbox],select {
+    width: 50%;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid pink;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit], [type=reset] {
+    width: 50%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }

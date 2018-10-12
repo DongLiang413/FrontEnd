@@ -80,21 +80,22 @@
         <counts>
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.26" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.28" value="1" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="87" />
-          <entry key="html" value="374" />
-          <entry key="js" value="2198" />
+          <entry key="html" value="495" />
+          <entry key="js" value="2875" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="87" />
-          <entry key="HTML" value="374" />
-          <entry key="JavaScript" value="2198" />
+          <entry key="HTML" value="495" />
+          <entry key="JavaScript" value="2875" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -102,7 +103,7 @@
           <entry key="PNG" value="1" />
           <entry key="css" value="4" />
           <entry key="html" value="13" />
-          <entry key="js" value="3" />
+          <entry key="js" value="4" />
           <entry key="png" value="2" />
         </counts>
       </usages-collector>
@@ -111,20 +112,20 @@
           <entry key="CSS" value="4" />
           <entry key="HTML" value="13" />
           <entry key="Image" value="3" />
-          <entry key="JavaScript" value="3" />
+          <entry key="JavaScript" value="4" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.4681107">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/calendar.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="51">
-                  <caret line="156" column="21" selection-start-line="156" selection-start-column="21" selection-end-line="156" selection-end-column="21" />
+                <state relative-caret-position="332">
+                  <caret line="172" column="29" lean-forward="true" selection-start-line="172" selection-start-column="29" selection-end-line="172" selection-end-column="29" />
                   <folding>
                     <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
                     <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
@@ -137,16 +138,24 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/calendar.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="150">
-                  <caret line="138" column="31" selection-start-line="138" selection-start-column="31" selection-end-line="138" selection-end-column="31" />
+                <state relative-caret-position="426">
+                  <caret line="116" column="50" selection-start-line="116" selection-start-column="37" selection-end-line="116" selection-end-column="50" />
                   <folding>
                     <element signature="n#!!block;n#onMouseOver#0" />
                     <element signature="n#!!block;n#onMouseOut#0" />
-                    <element signature="e#812#820#0" />
-                    <element signature="e#673#1049#0" />
-                    <element signature="e#1085#1535#0" />
+                    <element signature="e#948#1019#0" />
+                    <element signature="e#1054#1430#0" />
+                    <element signature="e#1466#1916#0" />
+                    <element signature="n#!!block;n#getSearchType#0" />
+                    <element signature="n#!!block;n#getSearchDistance#0" />
+                    <element signature="n#!!block;n#onClickSearch#0" />
                     <element signature="n#!!block;n#geocodeAddressMarker#0" />
-                    <element signature="e#4357#4430#0" />
+                    <element signature="e#3878#4608#0" />
+                    <element signature="e#4639#5028#0" />
+                    <element signature="n#!!block;n#callback#0" />
+                    <element signature="n#!!block;n#createMarker#0" />
+                    <element signature="e#5668#5741#0" />
+                    <element signature="e#5743#5745#0" />
                   </folding>
                 </state>
               </provider>
@@ -155,17 +164,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/form.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="125">
-                  <caret line="5" column="4" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="63" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/test.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="365">
-                  <caret line="30" selection-start-line="30" selection-end-line="33" selection-end-column="15" />
+                <state relative-caret-position="507">
+                  <caret line="37" column="74" selection-start-line="37" selection-start-column="74" selection-end-line="37" selection-end-column="74" />
                 </state>
               </provider>
             </entry>
@@ -182,8 +182,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/calendar_style.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-250">
-                  <caret line="8" column="32" lean-forward="true" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+                <state relative-caret-position="200">
+                  <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
                 </state>
               </provider>
             </entry>
@@ -200,16 +200,21 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/test.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="650">
-                  <caret line="49" column="32" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="32" />
-                  <folding>
-                    <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
-                    <element signature="e#551#624#0" />
-                  </folding>
+                <state relative-caret-position="790">
+                  <caret line="42" lean-forward="true" selection-end-line="68" selection-end-column="7" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/test.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="725">
+                  <caret line="77" column="5" lean-forward="true" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
                 </state>
               </provider>
             </entry>
@@ -235,8 +240,9 @@
       <find>hidden</find>
       <find>br</find>
       <find>map</find>
-      <find>location</find>
       <find>alert</find>
+      <find>checkOther</find>
+      <find>location</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -246,17 +252,17 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/form_style.css" />
-        <option value="$PROJECT_DIR$/form.html" />
         <option value="$PROJECT_DIR$/form.js" />
         <option value="$PROJECT_DIR$/widgets_style.css" />
         <option value="$PROJECT_DIR$/myWidgets.html" />
         <option value="$USER_HOME$/Desktop/csci4131/Google Maps Examples/mapEx1.html" />
         <option value="$USER_HOME$/Desktop/csci4131/Google Maps Examples/geocoder_ex.html" />
         <option value="$PROJECT_DIR$/test.css" />
-        <option value="$PROJECT_DIR$/test.js" />
         <option value="$USER_HOME$/Desktop/csci4131/Google Maps Examples/mapEx2.html" />
         <option value="$PROJECT_DIR$/calendar_style.css" />
+        <option value="$PROJECT_DIR$/form.html" />
         <option value="$PROJECT_DIR$/test.html" />
+        <option value="$PROJECT_DIR$/test.js" />
         <option value="$PROJECT_DIR$/calendar.html" />
         <option value="$PROJECT_DIR$/calendar.js" />
       </list>
@@ -280,7 +286,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -292,6 +297,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -336,17 +342,18 @@
       <workItem from="1537896625674" duration="6747000" />
       <workItem from="1539134940630" duration="18987000" />
       <workItem from="1539319545767" duration="13443000" />
+      <workItem from="1539353222240" duration="9785000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67672000" />
+    <option name="totallyTimeSpent" value="77457000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.12434141" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12434141" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -461,13 +468,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" column="24" lean-forward="true" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/csci4131/Google Maps Examples/geocoder_ex.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2050">
@@ -489,13 +489,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/form.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -503,31 +496,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/form.html">
+    <entry file="file://$PROJECT_DIR$/calendar_style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="4" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="63" />
+        <state relative-caret-position="200">
+          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/calendar_style.css">
+    <entry file="file://$PROJECT_DIR$/test.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-250">
-          <caret line="8" column="32" lean-forward="true" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+        <state>
+          <caret selection-end-line="4" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="37" column="74" selection-start-line="37" selection-start-column="74" selection-end-line="37" selection-end-column="74" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="30" selection-start-line="30" selection-end-line="33" selection-end-column="15" />
+        <state relative-caret-position="790">
+          <caret line="42" lean-forward="true" selection-end-line="68" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/calendar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="156" column="21" selection-start-line="156" selection-start-column="21" selection-end-line="156" selection-end-column="21" />
+        <state relative-caret-position="332">
+          <caret line="172" column="29" lean-forward="true" selection-start-line="172" selection-start-column="29" selection-end-line="172" selection-end-column="29" />
           <folding>
             <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
@@ -536,18 +536,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="725">
+          <caret line="77" column="5" lean-forward="true" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/calendar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="138" column="31" selection-start-line="138" selection-start-column="31" selection-end-line="138" selection-end-column="31" />
+        <state relative-caret-position="426">
+          <caret line="116" column="50" selection-start-line="116" selection-start-column="37" selection-end-line="116" selection-end-column="50" />
           <folding>
             <element signature="n#!!block;n#onMouseOver#0" />
             <element signature="n#!!block;n#onMouseOut#0" />
-            <element signature="e#812#820#0" />
-            <element signature="e#673#1049#0" />
-            <element signature="e#1085#1535#0" />
+            <element signature="e#948#1019#0" />
+            <element signature="e#1054#1430#0" />
+            <element signature="e#1466#1916#0" />
+            <element signature="n#!!block;n#getSearchType#0" />
+            <element signature="n#!!block;n#getSearchDistance#0" />
+            <element signature="n#!!block;n#onClickSearch#0" />
             <element signature="n#!!block;n#geocodeAddressMarker#0" />
-            <element signature="e#4357#4430#0" />
+            <element signature="e#3878#4608#0" />
+            <element signature="e#4639#5028#0" />
+            <element signature="n#!!block;n#callback#0" />
+            <element signature="n#!!block;n#createMarker#0" />
+            <element signature="e#5668#5741#0" />
+            <element signature="e#5743#5745#0" />
           </folding>
         </state>
       </provider>

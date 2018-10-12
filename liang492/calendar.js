@@ -15,6 +15,23 @@ function onMouseOut(w1, w2) {
 
 var iconImage = 'gdx.PNG';
 const dataNum = 3 * 5; // 3: morning, afternoon, evening; 5: Mon - Fri.
+var markerList = [];
+
+var eraseMarker = function() {
+    for (var i = 0; i < markerList.length; i++) {
+        markerList[i].setMap(null);
+    }
+};
+
+var $ = function(id) {
+    return document.getElementById(id);
+};
+
+var checkOther = function() {
+    if (document.getElementById("types").value === "Other") {
+        document.getElementById("otherplace").disabled = false;
+    }
+};
 
 var getEventList = function() {
     var eventList = [];
@@ -49,20 +66,27 @@ var getLocationList = function() {
 };
 
 function getSearchType() {
-    var type = document.getElementById("types").value;
-    if(type === "other") {
-        return document.getElementById("otherplace").value
+    // var type = $("types").value;
+    if(type === "Other") {
+        alert("other block: " + $("otherplace").value);
+        return $("otherplace").value;
     }
-    return document.getElementById("types").value;
+    // alert("type: " + type);
+    return $("types").value;
 }
 
 function getSearchDistance() {
-    return document.getElementById("distance").value;
+    // alert($("distance").value);
+    return $("distance").value;
 }
 
 function onClickSearch() {
-    initMap();
-    search(getSearchDistance(), getSearchType());
+    eraseMarker();
+    if ($("types").value !== "other"){
+        search();
+    } else {
+        searchText();
+    }
 }
 
 var map;
@@ -75,7 +99,7 @@ var initMap = function() {
 
     map = new google.maps.Map(document.getElementById('map'), {
         center: umn,
-        zoom: 16
+        zoom: 15
     });
 
     var geocoder = new google.maps.Geocoder();
@@ -83,16 +107,72 @@ var initMap = function() {
     for (var i = 0; i < l1.length; i++) {
         geocodeAddressMarker(geocoder, map, l1[i], l2[i]);
     }
+    // search()
 };
 
-var search = function (searchRadius, searchType) {
+function geocodeAddressMarker(geocoder, resultsMap, address, event) {
+    // var address = document.getElementById('address').value;
+    geocoder.geocode({'address': address}, function(results, status) {
+        if (status === google.maps.GeocoderStatus.OK) {
+            // resultsMap.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+                map: resultsMap,
+                position: results[0].geometry.location,
+                title:address,
+                icon: iconImage
+            });
+            markerList.push(marker);
+            var infowindow2 = new google.maps.InfoWindow({
+                content: event
+            });
+
+            google.maps.event.addListener(marker, 'mouseover', createWindow(resultsMap,infowindow2, marker));
+        } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+        } //end if-then-else
+    }); // end call to geocoder.geocode function
+}
+
+var search = function() {
+    var area = [];
+    // area.push("bank");
+    area.push(String($("types").value));
+    // alert($("types").options[$("types").selectedIndex].value);
+    // alert(area[0]);
+    // alert(area[2]);
+    // alert(area[0] === area[2]);
+    var searchUMN = new google.maps.LatLng(44.9727, -93.23540000000003);
+    // area.push(searchType);
+
+    // map = new google.maps.Map(document.getElementById('map'), {
+    //     center: searchUMN,
+    //     zoom: 15
+    // });
+
     infowindow = new google.maps.InfoWindow();
     var service = new google.maps.places.PlacesService(map);
     service.nearbySearch({
         location: umn,
-        radius: searchRadius,
-        type: [searchType]
+        radius: $("distance").value,
+        // type: "bank",
+        type: area[0],
     }, callback);
+};
+
+var searchText = function() {
+
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: umn,
+        zoom: 15
+    });
+    var request = {
+        location: umn,
+        radius: $("distance").value,
+        query: $("otherplace").value
+    };
+    infowindow = new google.maps.InfoWindow();
+    var service = new google.maps.places.PlacesService(map);
+    service.textSearch(request, callback);
 };
 
 function callback(results, status) {
@@ -109,51 +189,20 @@ function createMarker(place) {
         map: map,
         position: place.geometry.location
     });
-
-    google.maps.event.addListener(marker, 'click', function() {
+    markerList.push(marker);
+    google.maps.event.addListener(marker, 'mouseover', function() {
         infowindow.setContent(place.name);
         infowindow.open(map, this);
     });
 }
 
-function geocodeAddressMarker(geocoder, resultsMap, address, event) {
-    // var address = document.getElementById('address').value;
-    geocoder.geocode({'address': address}, function(results, status) {
-        if (status === google.maps.GeocoderStatus.OK) {
-            // resultsMap.setCenter(results[0].geometry.location);
-            var marker = new google.maps.Marker({
-                map: resultsMap,
-                position: results[0].geometry.location,
-                title:address,
-                icon: iconImage
-            });
-            var infowindow2 = new google.maps.InfoWindow({
-                content: event
-            });
-
-            google.maps.event.addListener(marker, 'mouseover', createWindow(resultsMap,infowindow2, marker));
-        } else {
-            alert('Geocode was not successful for the following reason: ' + status);
-        } //end if-then-else
-    }); // end call to geocoder.geocode function
-}
-
-// Function to return an anonymous function that will be called when the rmarker created in the
-// geocodeAddress function is clicked
 var createWindow = function(rmap, rinfowindow, rmarker) {
     return function(){
         rinfowindow.open(rmap, rmarker);
     }
-}//end create (info) win
-
-
-// var closeWindow = function(rinfowindow) {
-//     rinfowindow.close;
-// }
-
-
-
-
-// window.onload = displayTable;
-window.onload = initMap;
-// window.addEventListener('load', initMap);
+};
+//
+// window.onload = initMap;
+window.onload = function(){
+    initMap();
+};

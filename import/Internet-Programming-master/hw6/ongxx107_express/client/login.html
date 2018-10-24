@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="client/css/style.css">
+      <title>Welcome to Node.js</title>
+  </head>
+
+  <body>
+      <div class="login">
+        <h1> Login Page </h1>
+        <p> Please enter your use name and password. Both are case sensitive </p>
+      </div>
+      <div class="invalid" id="invalid"></div>
+      <div class="login">
+
+
+
+
+
+
+          <form name = "login" method = "post" action="/validateLoginDetails">
+
+            <p>
+              <br>
+                Username<input type="text" class="form-control" id="user" name="user" size="30" required>
+              <br>
+                Password<input type="password" class="form-control" id="pass" name="pass" size="30" required>
+              <br>
+            </p>
+          </div>
+
+          <div>
+          <button id= "myButton" type="submit" value="submit" class="btn btn-primary btn-block">
+            Login
+          </button>
+        </div>
+        <div class="col-md-1"></div>
+        </form>
+        <script>
+        "use strict";
+
+        (function() {
+          // the API end point
+          var url = "checkValidOrInvalid";
+
+          //var myFinal = "";
+          $.get(url, function(res) {
+            //var myArray = data.res.placeList;
+
+            if (res == false){
+                document.getElementById("invalid").innerHTML = "Invalid credentials. Please try again!";
+            }
+
+          });
+
+        })();
+
+        </script>
+
+
+
+
+  </body>
+</html>

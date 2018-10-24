@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>FormEX</title>
+	<link rel="stylesheet" href="sample.css">
+	<script>
+		function valForm() {
+			var nameval = document.forms["myForm"]["placename"].value;
+			var address1val = document.forms["myForm"]["addressline1"].value;
+			var address2val = document.forms["myForm"]["addressline2"].value;
+			if ((/^[A-Za-z ]+$/.test(nameval)) == true ) {
+				return true;
+			}
+			else {
+				alert("Name should consist of uppercase and/or lowercase characters only");
+				return false;
+			}
+			if ((/^[A-Z0-9a-z]+$/.test(address1val)) == true ) {
+				return true;
+			}
+			else {
+				alert("Address should consist of uppercase and/or lowercase characters and alphanumeric only");
+				return false;
+			}
+			if ((/^[A-Z0-9a-z ]+$/.test(address2val)) == true ) {
+				return true;
+			}
+			else {
+				alert("Name should consist of uppercase and/or lowercase characters and alphanumeric only");
+				return false;
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>Places Form</h1>
+	<ul>
+            <li><button type="button" onclick="window.location.href='sample.html'"> My Places</button></li>
+            <li><button type="button" onclick="window.location.href='Form.html'">Form Input</button></li>
+  </ul>
+	<p><br></p>
+
+	<form onsubmit = "return valForm()" name = "myForm" method = "get" action = "http://www-users.cselabs.umn.edu/~tulaj001/form_handler.php">
+		<fieldset>
+
+				<label>Place Name: </label><input type="text" name="placename" required />
+				<br>
+				<label>Address Line 1: </label><input type="text" name="addressline1" required />
+				<br>
+				<label>Address Line 2:</label> <input type="text" name="addressline2" required />
+				<br>
+				<label>Open Time: </label><input type="time" name="opentime" required />
+				<br>
+				<label>Close Time: </label><input type="time" name="closetime" required />
+				<br>
+				<label>Additional Information: </label><input type="text" name="additionalinfo"/>
+				<br>
+				<label></label><input type="submit" value="Submit" />
+
+		</fieldset>
+
+	</form>
+</body>
+</html>

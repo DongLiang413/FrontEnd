@@ -22,14 +22,17 @@
     <label>Event Name:</label> <br>
     <input type="text" id="ename" name="eventname" placeholder="Event name" required>
     <br>
+    <label>Address Line 1:</label> <br>
+    <input type="text" id="elocation" name="location" placeholder="Event Location" required>
+    <br>
+    <label>Address Line 2:</label> <br>
+    <input type="text" id="elocation2" name="location" placeholder="Event Location" required>
+    <br>
     <label>Start Time:</label> <br>
     <input type="time" id="stime" name="starttime" required>
     <br>
     <label>End Time:</label> <br>
     <input type="time" id="etime" name="endtime" required>
-    <br>
-    <label>Location:</label> <br>
-    <input type="text" id="elocation" name="location" placeholder="Event Location" required>
     <br>
     <label>Additional Info Text</label> <br>
     <input type="text" id="add_info" name="info" placeholder="Additional Info" required>
@@ -37,14 +40,14 @@
     <label>Additional URL</label> <br>
     <input type="text" id="add_url" name="url" placeholder="Additional URL" required>
     <br>
-    <label>Day of the week:</label> <br>
-    <select id="dweek" name = "day">
-        <option> Mon </option>
-        <option> Tue </option>
-        <option> Wed </option>
-        <option> Thu </option>
-        <option> Fri </option>
-    </select>
+    <!--<label>Day of the week:</label> <br>-->
+    <!--<select id="dweek" name = "day">-->
+        <!--<option> Mon </option>-->
+        <!--<option> Tue </option>-->
+        <!--<option> Wed </option>-->
+        <!--<option> Thu </option>-->
+        <!--<option> Fri </option>-->
+    <!--</select>-->
     <br>
     <input type="submit" value="Submit" onclick="checkSubmit()">
     <input type="reset" value="Reset">

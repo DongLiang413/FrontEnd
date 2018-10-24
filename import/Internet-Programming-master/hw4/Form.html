@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="icon" href="data:,">
+	<style>
+		 html, body {
+              height: 100%;
+              margin-left: auto;
+              margin-right: auto;
+
+            }
+
+
+
+		#floating-panel {
+			position: relative;
+			margin-left: 10%;
+			margin-right: 10%;
+			background-color: #fff;
+			padding: 5px;
+			text-align: center;
+			font-family: 'Roboto','sans-serif';
+			line-height: 30px;
+			padding-left: 10px;
+		}
+		.a{
+			position: relative;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: auto;
+			margin-bottom: auto;
+
+		}
+		button{
+			position: relative;
+			margin-left: 15%;
+			margin-right: 15%;
+		}
+		.twitter-timeline{
+			float: right;
+			margin-top: 2%;
+			margin-right: 2%;
+
+		}
+
+		div {
+			position: relative;
+			display: block;
+		}
+		ul{
+			background-color: red;
+			margin: 0;
+			text-align: center;
+		}
+		li{
+			display: inline;
+		}
+		body{
+			background-color: yellow;
+		}
+		table, th, td {
+			text-align: center;
+			border-collapse: collapse;
+			border: 3px solid black;
+		}
+		table{
+			/* margin-left: 20%;
+			margin-top: 4%;
+			width: 60%;
+			padding: 20px; */
+			height: 70%;
+			width: 50%;
+
+
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: auto;
+			margin-bottom: auto;
+		}
+		td{
+			background-color: #A3EE3D;
+			color: brown;
+		}
+
+		fieldset{
+			background-color: greenyellow;
+			margin: auto;
+			width: 50%;
+			text-align:left;
+			/* background-color: greenyellow;
+			margin-left: auto;
+			margin-right: auto;
+			width: 50%;
+			text-align:left; */
+		}
+		form{
+			background-color: yellow;
+			margin-left: auto;
+			margin-right: auto;
+			width: 50%;
+			text-align:left;
+		}
+		/*
+		label{
+			position: relative;
+			display: block;
+			text-align: center;
+		}
+		*/
+		label{
+			float: left;
+			width: 30%;
+			margin: 0 auto;
+		}
+
+		#right-panel {
+			overflow-x: scroll;
+			float: right;
+			width: 10%;
+			height: 70%;
+			margin-top: 2%;
+			margin-right: 2%;
+			font-family: 'Roboto','sans-serif';
+			line-height: 30px;
+			padding-left: 10px;
+			font-size: 50%;
+			font-weight: bold;
+		}
+		.panel {
+			height: 100%;
+			overflow: auto;
+		}
+
+
+		#right-panel select, #right-panel input {
+			font-size: 15px;
+		}
+
+		#right-panel select {
+			width: 100%;
+		}
+
+		#right-panel i {
+			font-size: 12px;
+		}
+		#map {
+			/* height: 100%;
+			float: left;
+			width: 63%;
+			height: 100%; */
+
+			height: 70%;
+			width: 50%;
+			position: relative;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: auto;
+			margin-bottom: auto;
+
+		}
+
+		.destin, .rad{
+			width: 60%;
+			margin-left: 21%;
+		}
+
+	</style>
+	<script>
+		function valForm() {
+			var nameval = document.forms["myForm"]["placename"].value;
+			var address1val = document.forms["myForm"]["addressline1"].value;
+			var address2val = document.forms["myForm"]["addressline2"].value;
+			if ((/^[A-Za-z ]+$/.test(nameval)) == true ) {
+				return true;
+			}
+			else {
+				alert("Name should consist of uppercase and/or lowercase characters only");
+				return false;
+			}
+			if ((/^[A-Z0-9a-z]+$/.test(address1val)) == true ) {
+				return true;
+			}
+			else {
+				alert("Address should consist of uppercase and/or lowercase characters and alphanumeric only");
+				return false;
+			}
+			if ((/^[A-Z0-9a-z ]+$/.test(address2val)) == true ) {
+				return true;
+			}
+			else {
+				alert("Name should consist of uppercase and/or lowercase characters and alphanumeric only");
+				return false;
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>Places Form</h1>
+	<ul>
+            <li><button type="button" onclick="window.location.href='sample.html'"> My Places</button></li>
+            <li><button type="button" onclick="window.location.href='Form.html'">Form Input</button></li>
+  </ul>
+	<p><br></p>
+
+	<form onsubmit = "return valForm()" name = "myForm" method = "POST" action = "http://localhost:9016">
+		<fieldset>
+
+				<label>Place Name: </label><input type="text" name="placename" required />
+				<br>
+				<label>Address Line 1: </label><input type="text" name="addressline1" required />
+				<br>
+				<label>Address Line 2:</label> <input type="text" name="addressline2" required />
+				<br>
+				<label>Open Time: </label><input type="time" name="opentime" required />
+				<br>
+				<label>Close Time: </label><input type="time" name="closetime" required />
+				<br>
+				<label>Additional Information: </label><input type="text" name="additionalinfo"/>
+				<br>
+				<label></label><input type="submit" value="Submit" />
+
+		</fieldset>
+
+	</form>
+</body>
+</html>

@@ -10,7 +10,7 @@ html, body {
 }
 
 #map {
-    margin-left:25%;
+    /*margin-left:25%;*/
     height: 50%;
     width: 60%;
     display: block;
@@ -19,6 +19,21 @@ html, body {
     /*margin-right: 15%;*/
     /*margin-top: 1%;*/
     /*align: center;*/
+}
+
+#google_translate_element{
+    height: 10%;
+    width: 25%;
+}
+
+#left_panel {
+    margin-left:0;
+    background-color: floralwhite;
+    height: 50%;
+    width: 25%;
+    display: block;
+    float: left;
+    overflow: auto;
 }
 
 #input {

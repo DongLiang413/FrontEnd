@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "utf-8">
+    <title> MyFavoritesTable </title>
+
+   <link rel="stylesheet" href="sample.css">
+
+</head>
+<body>
+    <h1>My Favorite Table</h1>
+    <ul>
+        <li><button type="button" onclick="window.location.href='sample.html'"> My Places</button></li>
+        <li><button type="button" onclick="window.location.href='Form.html'">Form Input</button></li>
+    </ul>
+
+    <div class = "twitter-timeline">
+            <a class="twitter-timeline" data-width= "200" data-height= "300" href="https://twitter.com/search?q=%23UMN%20%23UMNDriven" data-widget-id="959427843611680768">Tweets about #UMN #UMNDriven</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </div>
+    <p><br></p>
+    <table >
+        <tr>
+            <th> Name </th>
+            <th> Address </th>
+            <th> Operating Hours </th>
+            <th> <p> Additional </p> <p> Information </p> </th>
+        </tr>
+        <tr>
+            <td class = "name"> 44 North </td>
+            <td class = "address">2701 4th St SE, Minneapolis, MN 55414</td>
+            <td> 00:00 - 23:59 </td>
+            <td> </td>
+        </tr>
+        <tr>
+            <td class = "name"> Coffman Memorial Union </td>
+            <td class = "address"> 300 Washington Ave SE </td>
+            <td> <p> Sunday- 12:00 - 23:00 </p> <p> Monday- 07:00 - 23:00 </p>
+                <p> Tuesday- 07:00 - 23:00 </p> <p> Wednesday- 07:00 - 23:00 </p>
+                <p> Thursday- 07:00 - 01:00 </p> <p> Friday- 07:00 - 02:00 </p>
+                <p> Saturday- 08:00 - 02:00 </p>
+            </td>
+            <td> <a href="http://sua.umn.edu/locations/coffman/"> Info </a> </td>
+        </tr>
+        <tr>
+            <td class = "name"> Kimchi Tofu House </td>
+            <td class = "address">307 SE Oak St, Minneapolis, MN 55414</td>
+            <td> <p> 11:00 - 21:00 </p> <p> (except on Sunday) </p> </td>
+            <td> </td>
+        </tr>
+        <tr>
+            <td class = "name"> McDonald's </td>
+            <td class = "address"> 407 15th Ave SE, Minneapolis, MN 55414</td>
+            <td>  05:00 - 03:00  </td>
+            <td> </td>
+        </tr>
+    </table>
+    <br>
+
+    <div class="rad">
+    Radius:
+    <input id="myRadius" type="text" name="radius"  />
+        Nearby:
+        <select id="mySelect">
+          <option value="restaurant"> Restaurant</option>
+          <option value="museum">Museum</option>
+          <option value="library">Library</option>
+        </select>
+
+     <button type="button" id="search" onclick="searchNearby()">Search near me</button>
+    </div>
+     <br>
+    <div class="destin">
+    Destination:
+    <input id="dest" type="text" name="destination" />
+        Mode of Travel:
+        <select id="myTravel">
+            <option value="DRIVING">Driving</option>
+            <option value="WALKING">Walking</option>
+            <option value="BICYCLING">Bicycling</option>
+            <option value="TRANSIT">Transit</option>
+        </select>
+        <button type="button" id="get" onclick="getDirection()">Get Direction</button>
+    </div>
+
+    <br>
+    <div id="right-panel" ></div>
+    <div id="map"></div>
+
+
+
+    <script src = "sample.js"> </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqv-kyBM_ZQcaSWsISOy-0GS15xmO_Y8A&libraries=places&callback=initMap"
+    async defer></script>
+  </body>
+  <p> Tested using Chrome in CSE Lab </p>
+  <p> Please open full screen </p>
+</html>

@@ -1,0 +1,192 @@
+// YOU CAN USE THIS FILE AS REFERENCE FOR SERVER DEVELOPMENT
+
+// include the express module
+var express = require("express");
+
+// create an express application
+var app = express();
+
+// helps in extracting the body portion of an incoming request stream
+var bodyparser = require('body-parser');
+
+// fs module - provides an API for interacting with the file system
+var fs = require("fs");
+
+// helps in managing user sessions
+
+
+
+// native js function for hashing messages with the SHA-1 algorithm
+var sha1 = require('sha1');
+
+// include the mysql module
+var mysql = require("mysql");
+
+// apply the body-parser middleware to all incoming requests
+app.use(bodyparser());
+
+// use express-session
+// in mremory session is sufficient for this assignment
+app.use(session({
+  secret: "csci4131secretkey",
+  saveUninitialized: true,
+  resave: false}
+));
+
+var connection = mysql.createConnection({
+  host: "cse-curly.cse.umn.edu",
+  user: "C4131S18U97",
+  password: "102",
+  database: "C4131S18U97",
+  port: 3306
+});
+
+bodyParser.urlencoded({extended: true});
+app.use(bodyParser.json());    //get whole req
+
+var placename;
+var address1;
+var address2;
+var opentime;
+var closetime;
+var addinfo;
+var addurl;
+
+// server listens on port 9007 for incoming connections
+app.listen(9007, () => console.log('Listening on port 9007!'));
+
+// // GET method route for the favourites page.
+// It serves favourites.html present in client folder
+app.get('/favourites',function(req, res) {
+	// ADD DETAILS...
+	res.sendFile(path.join(__dirname + '/favourites.html'));
+});
+
+// GET method route for the addPlace page.
+// It serves addPlace.html present in client folder
+app.get('/addPlace',function(req, res) {
+	 // ADD DETAILS...
+	 
+	 res.sendFile(path.join(__dirname + '/addPlace.html'));
+});
+
+// GET method route for the login page.
+// It serves login.html present in client folder
+app.get('/login',function(req, res) {
+  // ADD DETAILS...
+ 
+  res.sendFile(path.join(__dirname + '/login.html'));
+});
+
+// GET method to return the list of favourite places
+// The function queries the table tbl_places for the list of places and sends the response back to client
+app.get('/getListOfFavPlaces', function(req, res) {
+  // ADD DETAILS...
+});
+
+// POST method to insert details of a new place to tbl_places table
+app.post('/postPlace', function(req, res) {
+	
+  placename = req.body.placename;
+  address1 = req.body.addressline1;
+  address2 = req.body.addressline2;
+  opentime = req.body.opentime;
+  closetime = req.body.closetime;
+  addinfo = req.body.additionalinfo;
+  addurl = req.body.additionalinfourl;
+  //INSERT INTO books (place_name, addr_line1, addr_line2, open_time, close_time, add_info, add_info_url) VALUES ( );
+  var rowToBeInserted = {
+    place_name: placename,
+    addr_line1: address1,
+    addr_line2: address2,
+    open_time: opentime,
+    close_time: closetime,
+    add_info: addinfo,
+    add_info_url: addurl
+  };
+
+  connection.query('INSERT tbl_places SET ?', rowToBeInserted, function(err, result) {  //Parameterized insert
+    if(err) throw err;
+    console.log("Values inserted");
+  });
+});
+
+// POST method to validate user login
+// upon successful login, user session is created
+app.post('/validateLoginDetails', function(req, res) {
+  // ADD DETAILS...
+  /*
+  var post = req.body;
+  if (post.user === 'john' && post.password === 'johnspassword') {
+    req.session.user_id = johns_user_id_here;
+    res.redirect('/my_secret_page');
+  } else {
+    res.send('Bad user/pass');
+  }
+  */
+  var username= req.body.user;
+  var password = req.body.pass;
+  
+/*
+  
+  connection.query('SELECT * FROM tesko WHERE username = ?',[username], function (error, results, fields) {
+if (error) {
+  // console.log("error ocurred",error);
+  res.send({
+    "code":400,
+    "failed":"error ocurred"
+  })
+}else{
+  // console.log('The solution is: ', results);
+  if(results.length >0){
+    if([0].password == password){
+      res.send({
+        "code":200,
+        "success":"login sucessfull"
+          });
+    }
+    else{
+      res.send({
+        "code":204,
+        "success":"Email and password does not match"
+          });
+    }
+  }
+  else{
+    res.send({
+      "code":204,
+      "success":"Email does not exits"
+        });
+  }
+}
+});
+*/
+
+
+
+});
+});
+
+// log out of the application
+// destroy user session
+app.get('/logout', function(req, res) {
+  // ADD DETAILS...
+  if (!req.session.value){
+		res.send('session not started');  
+  }
+  else{
+  		req.session.destroy();
+res.send('session complete');
+  		res.redirect('/login');
+  }
+});
+
+// middle ware to server static files
+app.use('/client', express.static(__dirname + '/client'));
+
+
+// function to return the 404 message and error to client
+app.get('*', function(req, res) {
+  // add details
+  res.sendFile(path.join(__dirname + '/404.html'));
+});

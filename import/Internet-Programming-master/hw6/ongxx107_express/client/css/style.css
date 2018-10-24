@@ -1,0 +1,12 @@
+h1, p, ul, h2 {
+    text-align: center !important;
+}
+
+#myFavTable.thead {
+	text-align: center;
+}
+
+.invalid {
+  color: red;
+  text-align: center;
+}

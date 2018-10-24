@@ -27,11 +27,16 @@ var eraseMarker = function() {
 var cleanMap = function () {
     eraseMarker();
     directionsDisplay.setMap(null);
+    userPosition = [];
 };
 
 var $ = function(id) {
     return document.getElementById(id);
 };
+
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
 
 var checkOther = function() {
     if ($("types").value === "Other") {
@@ -74,21 +79,6 @@ var getLocationList = function() {
     return locationList;
 };
 
-function getSearchType() {
-    // var type = $("types").value;
-    if(type === "Other") {
-        alert("other block: " + $("otherplace").value);
-        return $("otherplace").value;
-    }
-    // alert("type: " + type);
-    return $("types").value;
-}
-
-function getSearchDistance() {
-    // alert($("distance").value);
-    return $("distance").value;
-}
-
 function onClickSearch() {
     eraseMarker();
     if ($("types").value !== "Other"){
@@ -101,8 +91,6 @@ function onClickSearch() {
 var map;
 var umn = {lat: 44.9727, lng: -93.23540000000003};
 var infowindow;
-var lati;
-var long;
 var userLocation = null;
 var infoWindow;
 var service;
@@ -112,11 +100,14 @@ var directionsService;
 var initMap = function() {
     var l1 = getLocationList();
     var l2 = getEventList();
+
+    // service = new google.maps.places.PlacesService(map);
+    infoWindow = new google.maps.InfoWindow();
     directionsService = new google.maps.DirectionsService();
     directionsDisplay = new google.maps.DirectionsRenderer();
-    service = new google.maps.places.PlacesService(map);
-    infoWindow = new google.maps.InfoWindow();
     directionsDisplay.setMap(map);
+    directionsDisplay.setPanel(document.getElementById('right-panel'));
+    // directionsDisplay.setMap(map);
     map = new google.maps.Map(document.getElementById('map'), {
         center: umn,
         zoom: 15
@@ -127,7 +118,6 @@ var initMap = function() {
     for (var i = 0; i < l1.length; i++) {
         geocodeAddressMarker(geocoder, map, l1[i], l2[i]);
     }
-    // search()
 };
 
 function geocodeAddressMarker(geocoder, resultsMap, address, event) {
@@ -188,13 +178,14 @@ function getDirections() {
             break;
         }
     }
-    alert(checkedMode);
+
     var dest = $('destination').value;
+
     getUserLocation(function (location) {
         request = {
             origin: location,
             destination: dest,
-            travelMode: google.maps.TravelMode[checkedMode]
+            travelMode: checkedMode
         };
         directionsDisplay.setMap(map);
         directionsService.route(request, function (result, status) {
@@ -203,40 +194,7 @@ function getDirections() {
             }
         });
     });
-}
-
-var searchDirection = function () {
-    var directionsDisplay = new google.maps.DirectionsRenderer;
-    var directionsService = new google.maps.DirectionsService;
-    directionsDisplay.setMap(map);
-    getCurrentLocation();
-    calculateAndDisplayRoute(directionsService, directionsDisplay);
-};
-
-function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-    var geocoder = new google.maps.Geocoder();
-    var radios = document.getElementsByName('mode');
-    var checkedMode = null;
-    for (var i = 0, length = radios.length; i < length; i++) {
-        if (radios[i].checked) {
-            checkedMode = radios[i].value;
-            break;
-        }
-    }
-    directionsService.route({
-        origin: {lati, lont},
-        destination: $("destination").value,
-        // Note that Javascript allows us to access the constant
-        // using square brackets and a string value as its
-        // "property."
-        travelMode: google.maps.TravelMode[checkedMode]
-    }, function(response, status) {
-        if (status == 'OK') {
-            directionsDisplay.setDirections(response);
-        } else {
-            window.alert('Directions request failed due to ' + status);
-        }
-    });
+    directionsDisplay.setPanel(document.getElementById('left_panel'));
 }
 
 function getUserLocation(callback) {
@@ -280,7 +238,8 @@ function createMarker(place) {
     var placeLoc = place.geometry.location;
     var marker = new google.maps.Marker({
         map: map,
-        position: place.geometry.location
+        position: place.geometry.location,
+        animation: google.maps.Animation.DROP
     });
     markerList.push(marker);
     google.maps.event.addListener(marker, 'mouseover', function() {
@@ -295,7 +254,8 @@ var createWindow = function(rmap, rinfowindow, rmarker) {
     }
 };
 //
-// window.onload = initMap;
-window.onload = function(){
-    initMap();
-};
+window.onload = initMap;
+// window.onload = function(){
+//     initMap();
+//     getUserLocation();
+// };

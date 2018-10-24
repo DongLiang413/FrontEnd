@@ -28,7 +28,12 @@ OPTION2 = '{}Cache-Control: max-age=604800{}'.format(CRLF, CRLF)
 
 def get_contents(fname):
     with open(fname, 'r') as f:
-      return f.read()
+        return f.read()
+
+
+def get_binary_contents(fname):
+    with open(fname, 'rb') as f:
+        return f.read()
 
 
 def check_perms(resource):
@@ -238,22 +243,27 @@ class myServer:
     def accept(self):
         while True:
             (client, address) = self.sock.accept()
-            th = Thread(target=client_talk, args=(client, address))
+            th = Thread(target=self.accept_request, args=(client, address))
             th.start()
 
-    def accept_request(self, client_sock):
+        # here, we add a function belonging to the class to accept
+        # and process a request
+
+    def accept_request(self, client_sock, client_addr):
         print("accept request")
         data = client_sock.recv(BUFSIZE)
-        req = data.decode('utf-8')     # returns a string
-        response=self.process_request(req)
+        req = data.decode('utf-8')  # returns a string
+        response = self.process_request(req)  # returns a string
         # once we get a response, we chop it into utf encoded bytes
         # and send it (like EchoClient)
         client_sock.send(bytes(response, 'utf-8'))
 
         # clean up the connection to the client
-        # but leave the server socket for receiving requests open
+        # but leave the server socket for recieving requests open
         client_sock.shutdown(1)
         client_sock.close()
+
+        # added a method to process requests, only head is handled in this code
 
     def process_request(self, request):
         print('######\nREQUEST:\n{}######'.format(request))
@@ -264,22 +274,49 @@ class myServer:
             return ''
 
         if rlwords[0] == 'HEAD':
-            resource = rlwords[1][1:] # skip beginning /
+            resource = rlwords[1][1:]  # skip beginning /
             return self.head_request(resource)
+        elif rlwords[0] == 'GET':
+            resource = rlwords[1][1:]   # skip beginning /
+            return self.get_request(resource)
         else:
             return METHOD_NOT_ALLOWED
 
+
     def head_request(self, resource):
         """Handles HEAD requests."""
-        path = os.path.join('.', resource) #look in directory where server is running
+        path = os.path.join('.', resource)  # look in directory where server is running
         if resource == 'umntc':
             ret = MOVED_PERMANENTLY
         elif not os.path.exists(resource):
             ret = NOT_FOUND
-        # elif not check_perms(resource):
-        #     ret = FORBIDDEN
+        elif not check_perms(resource):
+            ret = FORBIDDEN
         else:
             ret = OK
+        return ret
+
+    # to do a get request, read resource contents and append to ret value.
+    # (you should check types of accept lines before doing so)
+    def get_request(self, resource):
+        """Handles GET requests."""
+        path = os.path.join('.', resource)  # look in directory where server is running
+        if resource == 'umntc':
+            ret = MOVED_PERMANENTLY
+
+        if not os.path.exists(resource):
+            ret = NOT_FOUND + get_contents('404.html')
+
+        if not check_perms(resource):
+            ret = FORBIDDEN + get_contents('403.html')
+
+        else:
+            target_file = open(resource, 'r')
+            read_content = target_file.read()
+            ret = OK + read_content
+            target_file.close()
+        # print(data.decode('utf-8'))
+        print('connection closed. GET')
         return ret
 
 

@@ -1,0 +1,93 @@
+body {
+    padding: 25px;
+    background: url(gophers-mascot.png);
+    background-repeat: no-repeat;
+    background-size: 1920px 1200px;
+    opacity: 0.7;
+}
+
+#div_timetable {
+    margin-left: 400px;
+    text-align: center
+}
+
+#timetable {
+    font-family: "Century Gothic";
+    font-size: large;
+    border-collapse: collapse;
+    width: 80%;
+    table-layout: fixed;
+}
+
+#timetable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    align-items: center;
+    font-family: "Century Gothic";
+}
+
+#timetable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    align-items: center;
+    font-family: 'Blackadder ITC';
+    font-size: 24px;
+}
+
+#timetable tr {background-color: floralwhite;}
+
+#timetable tr:hover {background-color: lightgray;}
+
+#timetable th {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: floralwhite;
+    color: black;
+}
+
+#timetable caption {
+    font-size: xx-large;
+    font-family: 'Blackadder ITC';
+    color: black;
+    font-weight: bolder;
+}
+
+#personalInfo p {
+    color: yellow;
+    font-size: medium;
+    font-family: 'Blackadder ITC';
+}
+
+#div_table_navi {
+    margin-left: 400px;
+    margin-right: 300px;
+    text-align: left;
+    width: 63%;
+}
+
+ul {
+    list-style-type: none;
+    margin: 8px;
+    padding: 8px;
+    overflow: hidden;
+    background-color: floralwhite;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 8px 20px;
+    text-decoration: none;
+    background: floralwhite;
+    font-family: "Blackadder ITC";
+    font-size: x-large;
+}
+
+li a:hover {
+    background-color: lightgray;
+}

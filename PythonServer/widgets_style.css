@@ -1,0 +1,52 @@
+body {
+    padding: 25px;
+    background: url(gophers-mascot.png);
+    background-repeat: no-repeat;
+    background-size: 1920px 1200px;
+    opacity: 0.9;
+}
+
+#div_widgets_navi {
+    margin-left: 350px;
+    margin-right: 300px;
+    text-align: left;
+    width: 63%;
+}
+
+ul {
+    list-style-type: none;
+    margin: 8px;
+    padding: 8px;
+    overflow: hidden;
+    background-color: floralwhite;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 8px 20px;
+    text-decoration: none;
+    background: floralwhite;
+    font-family: "Blackadder ITC";
+    font-size: x-large;
+}
+
+li a:hover {
+    background-color: lightgray;
+}
+
+#playlist {
+    margin-left: 660px;
+    margin-top: 10px;
+    opacity: 2.0;
+}
+
+#playlist  iframe {
+    width: 500px;
+    height: 350px;
+}
